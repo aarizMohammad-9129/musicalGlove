@@ -1,4 +1,4 @@
-//The following code is for a wearable midi instrument as part of my 
+//The following code is for a wearable midi instrument as part of my MIT Maker's Portfolio
 
 
 #include <Wire.h> // Added for MPU-6050 I2C communication
