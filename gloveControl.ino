@@ -1,5 +1,6 @@
-//The following code is for a wearable midi instrument as part of my MIT Maker's Portfolio. Except for the setup, loop and playNoteRoutine functions, the rest of the code is NOT MINE.
-//Credit to: Micheal D'Argenio for the starter code, as found on his youtube tutorial's description titled 'Serial MIDI Controller (Arduino Crash Course 21)'
+//The following code is for a wearable MIDI instrument as part of my MIT Maker's Portfolio. Except for the setup, loop and playNoteRoutine functions, the rest of the code is NOT MINE.
+//Credit to: Michael D'Argenio for the starter code, as found on his youtube tutorial's description titled 'Serial MIDI Controller (Arduino Crash Course 21)'
+//For the list of softwares used, refer README.md
 
 #include "notes.h"
 
