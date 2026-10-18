@@ -1,4 +1,4 @@
-//This is the library used to convert the analog readings to musical notes, courtesy of Micheal D'Argenio's 'Serial Midi Controller (Arduino Crash Course 21)' 
+//This is the library used to define musical notes to hairless midi, courtesy of Micheal D'Argenio's youtube tutorial titled 'Serial MIDI Controller (Arduino Crash Course 21)' 
 
 #define NOTE_A0  21
 #define NOTE_AS0 22
