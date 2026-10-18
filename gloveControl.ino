@@ -11,7 +11,7 @@
 #define HALF QUARTER*2
 #define WHOLE QUARTER*4
 
-const int index = A0;
+const int Index = A0;
 const int middle = A1;
 const int ring = A2;
 const int pinky = A3;
@@ -20,7 +20,7 @@ const int limit = 30;
 
 void setup() {
  Serial.begin(115200);
- pinMode(index, INPUT);
+ pinMode(Index, INPUT);
  pinMode(middle, INPUT);
  pinMode(ring, INPUT);
  pinMode(pinky, INPUT);
@@ -29,7 +29,7 @@ void setup() {
 
 
 void loop() {
- int v1 = analogRead(index);
+ int v1 = analogRead(Index);
  int v2 = analogRead(middle);
  int v3 = analogRead(ring);
  int v4 = analogRead(pinky);
@@ -50,7 +50,7 @@ void loop() {
  }
  
  //Middle + Ring
-  elseif (!I && M && R && !P) {
+  else if (!I && M && R && !P) {
   playNoteRoutine(NOTE_F4, QUARTER);
   delay(QUARTER);
   }
@@ -58,25 +58,25 @@ void loop() {
 //Single Finger Notes
 
  //Index
-  elseif (I && !M && !R && !P) {
+  else if (I && !M && !R && !P) {
   playNoteRoutine(NOTE_D4, EIGHTH);
   delay(EIGHTH);
  }
 
 //Middle
-   elseif (!I && M && !R && !P) {
+   else if (!I && M && !R && !P) {
   playNoteRoutine(NOTE_D5, QUARTER);
   delay(QUARTER);
  }
     
 //Ring
-    elseif (!I && !M && R && !P) {
+    else if (!I && !M && R && !P) {
   playNoteRoutine(NOTE_A4, DOT_QUARTER);
   delay(EIGHTH);
  }
 
 //Pinky
-      elseif (!I && !M && !R && P) {
+      else if (!I && !M && !R && P) {
   playNoteRoutine(NOTE_GS4, EIGHTH);
   delay(EIGHTH);
  }
