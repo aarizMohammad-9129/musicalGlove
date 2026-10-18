@@ -1,7 +1,6 @@
-//The following code is for a wearable midi instrument as part of my MIT Maker's Portfolio
+//The following code is for a wearable midi instrument as part of my MIT Maker's Portfolio. Except for the setup, loop and playNoteRoutine functions, the rest of the code is NOT MINE.
+//Credit to: Micheal D'Argenio for the starter code, as found on his youtube tutorial's description titled 'Serial MIDI Controller (Arduino Crash Course 21)'
 
-
-#include <Wire.h> // Added for MPU-6050 I2C communication
 #include "notes.h"
 
 #define SIXTEENTH QUARTER/4
@@ -11,13 +10,87 @@
 #define HALF QUARTER*2
 #define WHOLE QUARTER*4
 
+const int index = A0;
+const int middle = A1;
+const int ring = A2;
+const int pinky = A3;
+
+const int limit = 30;
+
 void setup() {
+ Serial.begin(115200);
+ pinMode(index, INPUT);
+ pinMode(middle, INPUT);
+ pinMode(ring, INPUT);
+ pinMode(pinky, INPUT);
  
 }
 
 
 void loop() {
+ int v1 = analogRead(index);
+ int v2 = analogRead(middle);
+ int v3 = analogRead(ring);
+ int v4 = analogRead(pinky);
 
+//Convert flex values to T/F statements
+
+ bool I = (v1 < limit);  //Index
+ bool M = (v2 < limit);  //Middle
+ bool R = (v3 < limit);  //Ring
+ bool P = (v4 < limit);  //Pinky
+
+//Two Finger Combination Notes
+ 
+ //Index + Middle
+ if (I && M && !R && !P) {
+  playNoteRoutine(NOTE_G4, QUARTER);
+  delay(QUARTER);
+ }
+ 
+ //Middle + Ring
+  elseif (!I && M && R && !P) {
+  playNoteRoutine(NOTE_F4, QUARTER);
+  delay(QUARTER);
+  }
+ 
+//Single Finger Notes
+
+ //Index
+  elseif (I && !M && !R && !P) {
+  playNoteRoutine(NOTE_D4, EIGHTH);
+  delay(EIGHTH);
+ }
+
+//Middle
+   elseif (!I && M && !R && !P) {
+  playNoteRoutine(NOTE_D5, QUARTER);
+  delay(QUARTER);
+ }
+    
+//Ring
+    elseif (!I && !M && R && !P) {
+  playNoteRoutine(NOTE_A4, DOT_QUARTER);
+  delay(EIGHTH);
+ }
+
+//Pinky
+      elseif (!I && !M && !R && P) {
+  playNoteRoutine(NOTE_GS4, EIGHTH);
+  delay(EIGHTH);
+ }
+
+delay(50);       
+       
+}
+
+//Helper function to handle midi control (added by me)
+
+void playNoteRoutine(int note, int duration) {
+ noteOn(note, 127);
+ delay(duration);
+ noteOff(note);
+ delay(20);
 }
 
 
