@@ -13,8 +13,8 @@ This version runs purely on USB serial communication, which means it isn't compl
 ## Links 
 1. [Serial MIDI Controller tutorial by Michael D'Argenio](https://www.youtube.com/watch?v=vpwYyWo8PE4&list=PLkKwJr5uzjIicD8VxUVXDNAD8alCjPz6N&index=22)
 
-2.[Viktor NV-1 Synthesizer](https://nicroto.github.io/viktor/)
+ 2.[Viktor NV-1 Synthesizer](https://nicroto.github.io/viktor/)
 
-3.[Hairless MIDI](https://projectgus.github.io/hairless-midiserial/)
+ 3.[Hairless MIDI](https://projectgus.github.io/hairless-midiserial/)
 
 4. [loopMIDI by Tobias Erichsen](https://www.tobias-erichsen.de/software/loopmidi.html)
